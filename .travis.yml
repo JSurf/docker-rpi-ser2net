@@ -3,6 +3,13 @@ sudo: required
 services:
    - docker
 
-before_install:
+install:
+   - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
    - docker run --rm --privileged multiarch/qemu-user-static:register --reset
-   - docker build -t jsurf/rpi-ser2net .
+   
+script:
+   - docker build -t $DOCKER_IMAGE_NAME .
+   - docker push $DOCKER_IMAGE_NAME
+
+env:
+   - DOCKER_IMAGE_NAME=jsurf/rpi-ser2net
