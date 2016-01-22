@@ -5,4 +5,4 @@ services:
 
 before_install:
    - docker run --rm --privileged multiarch/qemu-user-static:register --reset
-   - docker build -t jsurf/rpi-ser2net
+   - docker build -t jsurf/rpi-ser2net .
