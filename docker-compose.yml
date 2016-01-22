@@ -1,0 +1,6 @@
+rpi-ser2net:
+   build: .
+   devices:
+     - "/dev7ttyUSB0:/dev/ttyUSB0"
+   ports:
+     - "3333:3333"
