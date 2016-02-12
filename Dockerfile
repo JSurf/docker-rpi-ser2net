@@ -1,6 +1,8 @@
 FROM resin/rpi-raspbian:jessie
 MAINTAINER Jens Viebig jsurf@gmx.de
 
+ENV TZ Europe/Berlin
+
 RUN apt-get update \
     && apt-get install -y ser2net supervisor \
     && rm -rf /var/lib/apt/lists/*
