@@ -1,5 +1,7 @@
-FROM resin/rpi-raspbian:jessie
+FROM jsurf/rpi-raspbian:latest
 MAINTAINER Jens Viebig jsurf@gmx.de
+
+RUN [ "cross-build-start" ]
 
 ENV TZ Europe/Berlin
 
@@ -15,3 +17,5 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 3333
 
 CMD ["/usr/bin/supervisord"]
+
+RUN [ "cross-build-end" ]
