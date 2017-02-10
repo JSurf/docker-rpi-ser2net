@@ -6,16 +6,13 @@ RUN [ "cross-build-start" ]
 ENV TZ Europe/Berlin
 
 RUN apt-get update \
-    && apt-get install -y ser2net supervisor \
+    && apt-get install -y ser2net \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /var/log/supervisor
-
 ADD ser2net.conf /etc/ser2net.conf
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 3333
 
-CMD ["/usr/bin/supervisord"]
+CMD /usr/sbin/ser2net -d -u
 
 RUN [ "cross-build-end" ]
