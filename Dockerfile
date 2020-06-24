@@ -1,4 +1,4 @@
-FROM jsurf/rpi-raspbian:latest
+FROM jsurf/rpi-raspbian:buster
 MAINTAINER Jens Viebig jsurf@gmx.de
 
 RUN [ "cross-build-start" ]
